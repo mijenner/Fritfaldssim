@@ -53,6 +53,7 @@
 
     <ScottPlot:AvaPlot 
       Name="AvaPlot1"
+      
       Grid.Row="2"
       Grid.ColumnSpan="3"
       />

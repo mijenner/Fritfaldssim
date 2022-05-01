@@ -28,4 +28,7 @@
     <PackageReference Include="ScottPlot.Avalonia" Version="4.1.41" />
     <PackageReference Include="XamlNameReferenceGenerator" Version="1.3.4" />
   </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Models\" />
+  </ItemGroup>
 </Project>

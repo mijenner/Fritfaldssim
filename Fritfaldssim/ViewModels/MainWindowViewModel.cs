@@ -2,7 +2,6 @@ using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Text;
-using Fritfaldssim.Models;
 using Fritfaldssim.Services;
 
 namespace Fritfaldssim.ViewModels
@@ -11,13 +10,19 @@ namespace Fritfaldssim.ViewModels
    {
       public Simulate simulate { get; }
       public string Titel { get; } 
-      public ObservableCollection<Tilstand> SimResultsList { get; }
+      public ObservableCollection<double> time { get; }
+      public ObservableCollection<double> position { get; }
+      public ObservableCollection<double> speed { get; }
+      public int NumElements { get;  } 
 
       public MainWindowViewModel(Simulate sim)
       {
          Titel = "Fysiksimulator"; 
-         simulate = sim;
-         SimResultsList = simulate.SimResult;
+         this.simulate = sim;
+         this.time = sim.time;
+         this.position = sim.position;
+         this.speed = sim.speed;
+         this.NumElements = sim.speed.Count;
       }
    }
 }

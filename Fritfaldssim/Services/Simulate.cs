@@ -4,23 +4,28 @@ using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using Fritfaldssim.Models; 
 
 namespace Fritfaldssim.Services
 {
    public class Simulate
    {
-      public ObservableCollection<Tilstand> SimResult { get; }
+      public ObservableCollection<double> time { get;  }
+      public ObservableCollection<double> position { get; }
+      public ObservableCollection<double> speed { get; }
 
       public Simulate()
       {
-         SimResult = new ObservableCollection<Tilstand>();
+         time = new ObservableCollection<double>();
+         position = new ObservableCollection<double>();
+         speed = new ObservableCollection<double>();
          RunSimulation(); 
       }
 
       public void RunSimulation()
       {
-         SimResult.Clear();
+         time.Clear(); 
+         position.Clear();
+         speed.Clear();
 
          double v2 = 0;
          double v1 = 0;
@@ -35,9 +40,11 @@ namespace Fritfaldssim.Services
          var formfaktor = 1.0;
          var Density = 1.3;
          var TAreal = 0.8;
-         var Time = 5; 
+         var Time = 5;
 
-         SimResult.Add(new Tilstand() { timestamp=t, position=s2, speed=v2 });
+         time.Add(t);
+         position.Add(s2); 
+         speed.Add(v2);
 
          while (t < Time && Density > 0)
          {
@@ -47,7 +54,9 @@ namespace Fritfaldssim.Services
             s2 = v1 * DeltaT + s1;
             s1 = s2;
 
-            SimResult.Add(new Tilstand() { timestamp = t, position = s2, speed = v2 });
+            time.Add(t);
+            position.Add(s2);
+            speed.Add(v2);
          }
 
       }
