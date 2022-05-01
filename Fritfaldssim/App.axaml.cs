@@ -24,7 +24,7 @@ namespace Fritfaldssim
 
             desktop.MainWindow = new MainWindow
             {
-               DataContext = new MainWindowViewModel(sim.SimResult),
+               DataContext = new MainWindowViewModel(sim),
             };
          }
 

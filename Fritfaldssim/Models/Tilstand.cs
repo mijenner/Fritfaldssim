@@ -8,8 +8,8 @@ namespace Fritfaldssim.Models
 {
    public class Tilstand
    {
-      public double timestamp;
-      public double position;
-      public double speed; 
+      public double timestamp { get; set; }
+      public double position { get; set; }
+      public double speed { get; set; } 
    }
 }

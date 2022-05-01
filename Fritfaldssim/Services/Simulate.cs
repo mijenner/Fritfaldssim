@@ -10,7 +10,7 @@ namespace Fritfaldssim.Services
 {
    public class Simulate
    {
-      public ObservableCollection<Tilstand> SimResult { get;  }
+      public ObservableCollection<Tilstand> SimResult { get; }
 
       public Simulate()
       {
@@ -21,7 +21,6 @@ namespace Fritfaldssim.Services
       public void RunSimulation()
       {
          SimResult.Clear();
-         var tempTilstand = new Tilstand();
 
          double v2 = 0;
          double v1 = 0;
@@ -38,24 +37,17 @@ namespace Fritfaldssim.Services
          var TAreal = 0.8;
          var Time = 5; 
 
-         tempTilstand.timestamp = t;
-         tempTilstand.position = s2;
-         tempTilstand.speed = v2;
-         SimResult.Add(tempTilstand);
+         SimResult.Add(new Tilstand() { timestamp=t, position=s2, speed=v2 });
 
          while (t < Time && Density > 0)
          {
             v2 = ((Weight * g - 0.5 * formfaktor * Math.Pow(v1, 2) * Density * TAreal) / Weight) * DeltaT + v1;
             v1 = v2;
             t = t + DeltaT;
-
             s2 = v1 * DeltaT + s1;
             s1 = s2;
 
-            tempTilstand.timestamp = t;
-            tempTilstand.position = s2;
-            tempTilstand.speed = v2;
-            SimResult.Add(tempTilstand);
+            SimResult.Add(new Tilstand() { timestamp = t, position = s2, speed = v2 });
          }
 
       }
