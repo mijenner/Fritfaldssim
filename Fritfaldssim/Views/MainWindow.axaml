@@ -1,0 +1,62 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:vm="using:Fritfaldssim.ViewModels"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:ScottPlot="clr-namespace:ScottPlot.Avalonia;assembly=ScottPlot.Avalonia"
+        mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+        x:Class="Fritfaldssim.Views.MainWindow"
+        Icon="/Assets/avalonia-logo.ico"
+        Title="Fritfaldssim"
+        >
+
+    <Design.DataContext>
+        <vm:MainWindowViewModel/>
+    </Design.DataContext>
+
+  <Grid
+    RowDefinitions="80, 80, *"
+    ColumnDefinitions="120, *"
+    Background="Beige" >
+
+    <TextBlock
+      Grid.Row="0"
+      Grid.Column="0"
+      Text="{Binding Titel}"
+      HorizontalAlignment="Center"
+      VerticalAlignment="Center"
+      />
+
+    <TextBlock
+      Grid.Row="0"
+      Grid.Column="1"
+      Text="Frit fald"
+      HorizontalAlignment="Center"
+      VerticalAlignment="Center"
+      />
+
+    <StackPanel
+      Grid.Row="1"
+      Grid.ColumnSpan="3"
+      Orientation="Horizontal"
+      HorizontalAlignment="Left"
+      VerticalAlignment="Center"
+      >
+      <Button
+        Content="Kør simulering"
+        HorizontalAlignment="Center"
+        VerticalAlignment="Center"
+        Padding="10,10"
+        Margin="10"
+       />
+    </StackPanel>
+
+    <ScottPlot:AvaPlot Name="AvaPlot1"
+                       Grid.Row="2"
+                       Grid.ColumnSpan="3"
+                       />
+
+  </Grid>
+  
+
+</Window>
